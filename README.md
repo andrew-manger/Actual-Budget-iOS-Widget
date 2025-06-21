@@ -2,6 +2,12 @@
 
 This is a custom iOS widget for [Actual Budget](https://actualbudget.org), built using [Scriptable](https://scriptable.app). It displays the balances for a specific category group (like "Living Expenses") from your synced Actual data.
 
+## 📷 Widget Preview
+
+![Actual Budget Widget Preview](./IMG_4939.png)
+
+![Actual Budget Widget Config](./IMG_4940.png)
+
 ## 🧰 Features
 
 - 🧠 Caches the latest data locally for offline access
