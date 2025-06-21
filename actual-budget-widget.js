@@ -10,21 +10,21 @@ const apiKey = "YOUR_API_KEY"
 const apiBaseUrl = "https://your-actual-api.example.com"
 
 // 📁 Name of the category group to show in the widget
-const targetGroupName = "CATEGORY_GROUP_NAME"
+const targetGroupName = "Category Group Title"
 
 // === 🎨 APPEARANCE SETTINGS ===
 
 // Spacing between category lines
-const itemSpacing = 4
+const itemSpacing = 8
 
 // Font sizes
-const textSize = 12                         // Category name
-const balanceSize = 12                      // Category balance
-const groupTitleSize = 16                   // Title: "📅 Month • 📂 Group"
+const textSize = 16                         // Category name
+const balanceSize = 16                      // Category balance
+const groupTitleSize = 12                   // Title: "📅 Month • 📂 Group"
 const footerTextSize = 10                   // "Last updated" footer
 
 // Text colors
-const groupTitleColor = Color.blue()        // Title color
+const groupTitleColor = Color.gray()        // Title color
 const footerTextColor = Color.gray()        // Footer color
 const positiveColor = Color.green()         // Balance > 0
 const zeroColor = Color.gray()              // Balance = 0
@@ -139,7 +139,7 @@ const nextRefresh = new Date(Date.now() + refreshInterval * 60 * 1000)
 w.refreshAfterDate = nextRefresh
 
 // 🧾 Display widget
-w.setPadding(10, 10, 10, 10)
+w.setPadding(20,20,20,20)
 w.presentLarge()
 Script.setWidget(w)
 Script.complete()
