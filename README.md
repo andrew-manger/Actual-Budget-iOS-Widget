@@ -34,7 +34,7 @@ This is a custom iOS widget for [Actual Budget](https://actualbudget.org), built
 const syncId = "YOUR_SYNC_ID"
 const apiKey = "YOUR_API_KEY"
 const apiBaseUrl = "https://your-actual-api.example.com"
-const targetGroupName = "CATEGORY_GROUP_NAME"
+const targetGroupName = "Category Group Title"
 ```
 
 4.	**Optional: Customize appearance** (fonts, colors, spacing).
