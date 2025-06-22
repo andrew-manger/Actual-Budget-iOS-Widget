@@ -110,7 +110,7 @@ if (!targetGroup) {
     stack.addSpacer()
 
     const balance = (cat.balance / 100).toFixed(2)
-    const balTxt = stack.addText(`${currencyPrefix}${balance}${currencySuffix}`)
+    const balTxt = stack.addText(`${balance < 0 ? '-' : ''}${currencyPrefix}${Math.abs(balance)}${currencySuffix}`);
     balTxt.font = Font.boldSystemFont(balanceSize)
 
     if (cat.balance > 0) balTxt.textColor = positiveColor
