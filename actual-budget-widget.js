@@ -12,6 +12,10 @@ const apiBaseUrl = "https://your-actual-api.example.com"
 // 📁 Name of the category group to show in the widget
 const targetGroupName = "Category Group Title"
 
+// 💸 Currency symbol(s) that should prefix or suffix your balance values
+const currencyPrefix = "$"
+const currencySuffix = ""
+
 // === 🎨 APPEARANCE SETTINGS ===
 
 // Spacing between category lines
@@ -106,7 +110,7 @@ if (!targetGroup) {
     stack.addSpacer()
 
     const balance = (cat.balance / 100).toFixed(2)
-    const balTxt = stack.addText(`£${balance}`)
+    const balTxt = stack.addText(`${currencyPrefix}${balance}${currencySuffix}`)
     balTxt.font = Font.boldSystemFont(balanceSize)
 
     if (cat.balance > 0) balTxt.textColor = positiveColor
