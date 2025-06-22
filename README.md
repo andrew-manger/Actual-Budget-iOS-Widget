@@ -37,7 +37,7 @@ const apiBaseUrl = "https://your-actual-api.example.com"
 const targetGroupName = "Category Group Title"
 ```
 
-4.	**Optional: Customize appearance** (fonts, colors, spacing).
+4.	**Optional: Customize appearance** (currency, fonts, colors, spacing).
 
 5.	**Run the script once** in the Scriptable app to confirm it works. It should show a list of categories and their balances.
 	
