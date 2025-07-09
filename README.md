@@ -15,6 +15,7 @@ This is a custom iOS widget for [Actual Budget](https://actualbudget.org), built
 - 🎨 Fully customizable fonts, colors, and layout
 - 🕓 Displays "last updated" timestamp with error fallback
 - 📅 Shows balances for the current month
+- 📂 Shows recent uncategorised transactions (count and total value)
 
 ## 📦 Requirements
 
@@ -57,6 +58,7 @@ You can adjust:
 - Font sizes and spacing
 - Colors for titles, balances, positive/negative values
 - Category group name
+- How far back in time the widget should search for uncategorised transactions
 - Refresh intervals (manually, if desired)
 
 ## 🧑‍💻 Credits
