@@ -1,51 +1,55 @@
+// Documentation: 
+// - https://github.com/TaylorJns/Actual-Budget-iOS-Widget
+// - https://github.com/jhonderson/actual-http-api
+
 // === 📦 CONFIGURATION VARIABLES ===
 
 // 🔑 Your Actual Budget sync ID (Settings → Advanced → Sync ID)
-const syncId = "YOUR_SYNC_ID"
+const syncId = "insert here"
 
 // 🔐 API key set in your actual-http-api server (must match the `API_KEY` env variable)
-const apiKey = "YOUR_API_KEY"
+const apiKey = "insert here"
 
 // 🌐 Base URL of your actual-http-api instance (no trailing slash)
-const apiBaseUrl = "https://your-actual-api.example.com"
+const apiBaseUrl = "https://your.actual-http-api-address.com"
 
 // 📁 Name of the category group to display in the widget
-const targetGroupName = "Category Group Title"
+const targetGroupName = "Usual Expenses"
 
 // 💸 Currency formatting
-const currencyPrefix = "$"  // Symbol shown before the number
-const currencySuffix = ""   // Text shown after the number
+const currencyPrefix = "$"   // Symbol shown before the number
+const currencySuffix = ""    // Text shown after the number
 
 // === 🎨 APPEARANCE SETTINGS ===
 
 // Font sizes
-const textSize = 16                         // Category name
-const balanceSize = 16                      // Category balance
-const groupTitleSize = 12                   // Title line
-const footerTextSize = 10                   // Footer line
+const textSize = 16            // Category name
+const balanceSize = 16            // Category balance
+const groupTitleSize = 12         // Title line
+const footerTextSize = 10         // Footer line
 
 // Text colors
-const groupTitleColor = Color.gray()        // Title line color
-const footerTextColor = Color.gray()        // Footer line color
-const positiveColor = Color.green()         // Balance > 0
-const zeroColor = Color.gray()              // Balance = 0
-const negativeColor = Color.red()           // Balance < 0
+const groupTitleColor = Color.gray()   // Title line color
+const footerTextColor = Color.gray()   // Footer line color
+const positiveColor = Color.green()    // Balance > 0
+const zeroColor = Color.gray()        // Balance = 0
+const negativeColor = Color.red()      // Balance < 0
 
 // Layout
-const itemSpacing = 10                      // Space between lines
-const widgetPadding = 20                    // Padding around widget edges
+const itemSpacing = 10            // Space between lines
+const widgetPadding = 20          // Padding around widget edges
 
 // === 🔍 UNCATEGORISED TRANSACTIONS SETTINGS ===
 
-const lookbackDays = 30                     // Days to look back for uncategorised txns
+const lookbackDays = 30           // Days to look back for uncategorised txns
 const uncategorisedBgColor = new Color("#333333", 0.2)  // Background box color
-const uncategorisedTextColor = Color.orange()           // Text color
-const uncategorisedBoxPadding = 6           // Padding inside the summary box
-const uncategorisedFontSize = 12            // Font size for uncategorised summary
+const uncategorisedTextColor = Color.orange()      // Text color
+const uncategorisedBoxPadding = 6     // Padding inside the summary box
+const uncategorisedFontSize = 12      // Font size for uncategorised summary
 
 // === ⚙️ BEHAVIOUR SETTINGS ===
 
-const enableDebugLogging = true             // Log fetch/debug info to console
+const enableDebugLogging = true       // Log fetch/debug info to console
 
 // === 🔧 Helper: Format Amount
 function formatAmount(amount) {
@@ -75,6 +79,10 @@ timeFormatter.useShortTimeStyle()
 
 // === 🧾 Try loading cache
 let w = new ListWidget()
+
+// Use the dynamic color to automatically switch between black and white
+const categoryNameColor = Color.dynamic(Color.black(), Color.white())
+
 let cache = null
 let data, lastSuccessTime, failedNow = false
 
@@ -186,7 +194,7 @@ if (!targetGroup) {
 
     const nameTxt = stack.addText(cat.name)
     nameTxt.font = Font.systemFont(textSize)
-    nameTxt.textColor = Color.white()
+    nameTxt.textColor = categoryNameColor // This will now correctly change color automatically.
 
     stack.addSpacer()
 
@@ -242,7 +250,7 @@ if (failedNow) {
 }
 
 // === 🔁 Auto-refresh
-const refreshInterval = failedNow ? 30 : 360 // in minutes
+const refreshInterval = failedNow ? 30 : 60 // in minutes
 const nextRefresh = new Date(Date.now() + refreshInterval * 60 * 1000)
 w.refreshAfterDate = nextRefresh
 
